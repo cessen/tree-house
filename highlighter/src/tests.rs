@@ -247,8 +247,10 @@ fn layers() {
 /// ```
 pub fn hello() {}";
 
+    let rope = ropey::Rope::from_str(input);
+
     let syntax = crate::Syntax::new(
-        ropey::RopeSlice::from(input),
+        rope.slice(..),
         loader.get("rust"),
         std::time::Duration::from_secs(60),
         &loader,
